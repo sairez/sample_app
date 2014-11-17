@@ -1,0 +1,6 @@
+---
+
+- hosts: all
+  connection: local
+  roles:
+  - { role: digineo.passenger, passenger_version: "4.0.53" }

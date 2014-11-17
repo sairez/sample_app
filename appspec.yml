@@ -3,6 +3,8 @@ os: linux
 files:
   - source: /content
     destination: /var/www/sample_app
+  - source: playbook.yml
+    destination: /tmp/playbook.yml
   BeforeInstall:
     - location: scripts/install_dependencies
       timeout: 300

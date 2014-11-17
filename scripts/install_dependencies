@@ -1,3 +1,14 @@
 #!/bin/bash
-sudo yum update
-sudo yum install -y ansible python-simplejson httpd
+
+yum list installed python-pip &> /dev/null
+if [ $? != 0 ]; then
+    yum install -y python-pip
+fi
+
+pip list | grep -q ansible
+if [ $? != 0 ]; then
+    pip install ansible
+fi
+
+ansible-galaxy install digineo.passenger
+ansible-playbook /tmp/playbook.yml
